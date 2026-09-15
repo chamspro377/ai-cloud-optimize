@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${APP_BIND_IP:-127.0.0.1}:${APP_PORT:-8001}:8000"
+    restart: unless-stopped
+    init: true

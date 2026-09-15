@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables / secrets
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+
+# ML generated artifacts
+*.pkl
+*.joblib
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+ml/data/raw/
+ml/data/processed/
+# Retain the local Docker provider lock after terraform init
+!terraform/docker/.terraform.lock.hcl
+
+# Dataset paths are case-sensitive on Linux.
+/ML/data/raw/
+/ML/data/processed/
+.ipynb_checkpoints/
+/ML/README.md.txt
+.env.*
+*.pem
+*.key
+*.tfvars
+*.tfvars.json
+*.tfplan
+
+# Trusted models required by Docker and inference (about 7 MB combined).
+!/ML/models/reference_v1/cpu_reference.joblib
+!/ML/models/reference_v1/mem_reference.joblib

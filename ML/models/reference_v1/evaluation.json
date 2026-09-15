@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-14T09:44:07.657152+00:00",
+  "dataset_sha256": "47adeb9ee98452fb1e07ded949192b1213d7099b93b9816fac2af89a33da2113",
+  "versions": {
+    "python": "3.14.3",
+    "sklearn": "1.9.0",
+    "pandas": "3.0.5",
+    "numpy": "2.5.2",
+    "joblib": "1.5.3"
+  },
+  "protocol": {
+    "seed": 42,
+    "requested_test_job_fraction": 0.2,
+    "group_column": "job_id",
+    "features": [
+      "instance_num",
+      "plan_cpu",
+      "plan_mem"
+    ],
+    "forest_parameters": {
+      "n_estimators": 100,
+      "max_depth": 12,
+      "min_samples_leaf": 5,
+      "max_features": 1.0
+    },
+    "n_jobs": 1,
+    "baseline": "DummyRegressor(strategy='mean'), fitted on training targets only",
+    "selection": "Fixed parameters before evaluation; no tuning or winner selection on test data.",
+    "fit_scope": "Training jobs only; saved models are the exact evaluated estimators, without a full-data refit."
+  },
+  "split": {
+    "train": {
+      "rows": 53220,
+      "jobs": 9314
+    },
+    "test": {
+      "rows": 13628,
+      "jobs": 2329
+    }
+  },
+  "resources": {
+    "cpu": {
+      "train_rows": 53220,
+      "test_rows": 13628,
+      "train_jobs": 9314,
+      "test_jobs": 2329,
+      "training_feature_ranges": {
+        "instance_num": {
+          "min": 1.0,
+          "max": 51642.0
+        },
+        "plan_cpu": {
+          "min": 40.0,
+          "max": 800.0
+        },
+        "plan_mem": {
+          "min": 0.0027541221235731,
+          "max": 0.0902233841534439
+        }
+      },
+      "targets": {
+        "cpu_mean_of_attempt_averages": {
+          "forest_train": {
+            "rows": 53220,
+            "mae": 0.24243813360162675,
+            "rmse": 0.303351070769661,
+            "r2": 0.2980990372212575,
+            "underprediction_rate": 0.5359639233370913
+          },
+          "forest_test": {
+            "rows": 13628,
+            "mae": 0.24712989828454973,
+            "rmse": 0.3080339177324237,
+            "r2": 0.2732991751377709,
+            "underprediction_rate": 0.5269298503081891
+          },
+          "baseline_test": {
+            "rows": 13628,
+            "mae": 0.3075134936217166,
+            "rmse": 0.3615368523949448,
+            "r2": -0.001068323942785776,
+            "underprediction_rate": 0.5437334898737892
+          },
+          "mae_reduction_vs_constant": 0.19636079908560666,
+          "test_by_coverage": {
+            "full": {
+              "forest": {
+                "rows": 13511,
+                "mae": 0.2473793150215328,
+                "rmse": 0.3083162780803877,
+                "r2": 0.27566234912440246,
+                "underprediction_rate": 0.5240174672489083
+              },
+              "baseline": {
+                "rows": 13511,
+                "mae": 0.30848070306590886,
+                "rmse": 0.3625086539820825,
+                "r2": -0.001347708811127779,
+                "underprediction_rate": 0.5406705647250388
+              }
+            },
+            "partial": {
+              "forest": {
+                "rows": 117,
+                "mae": 0.21832759458046333,
+                "rmse": 0.27347361533494974,
+                "r2": -2.1386873617868707,
+                "underprediction_rate": 0.8632478632478633
+              },
+              "baseline": {
+                "rows": 117,
+                "mae": 0.19582146968597444,
+                "rmse": 0.2223844201883451,
+                "r2": -1.075515164583737,
+                "underprediction_rate": 0.8974358974358975
+              }
+            }
+          }
+        },
+        "cpu_observed_peak": {
+          "forest_train": {
+            "rows": 53220,
+            "mae": 0.957695879547484,
+            "rmse": 1.5228364677948767,
+            "r2": 0.3818110629651348,
+            "underprediction_rate": 0.29071777527245396
+          },
+          "forest_test": {
+            "rows": 13628,
+            "mae": 0.9803662208870331,
+            "rmse": 1.5561170219383853,
+            "r2": 0.3114665099546726,
+            "underprediction_rate": 0.28294687408277075
+          },
+          "baseline_test": {
+            "rows": 13628,
+            "mae": 1.2324768927723246,
+            "rmse": 1.8756240890030929,
+            "r2": -0.00030436971515923616,
+            "underprediction_rate": 0.31486645142353975
+          },
+          "mae_reduction_vs_constant": 0.20455610434869542,
+          "test_by_coverage": {
+            "full": {
+              "forest": {
+                "rows": 13511,
+                "mae": 0.9788347415180572,
+                "rmse": 1.556312948685454,
+                "r2": 0.3163038769171329,
+                "underprediction_rate": 0.28376878099326475
+              },
+              "baseline": {
+                "rows": 13511,
+                "mae": 1.2382820833337158,
+                "rmse": 1.882463376138135,
+                "r2": -0.0002817075563117388,
+                "underprediction_rate": 0.3127821774850122
+              }
+            },
+            "partial": {
+              "forest": {
+                "rows": 117,
+                "mae": 1.157219364085614,
+                "rmse": 1.5333233056864668,
+                "r2": -3.49230393413342,
+                "underprediction_rate": 0.18803418803418803
+              },
+              "baseline": {
+                "rows": 117,
+                "mae": 0.5621014254650106,
+                "rmse": 0.741525516253368,
+                "r2": -0.05063982220404473,
+                "underprediction_rate": 0.5555555555555556
+              }
+            }
+          }
+        }
+      }
+    },
+    "mem": {
+      "train_rows": 23803,
+      "test_rows": 6430,
+      "train_jobs": 4000,
+      "test_jobs": 1066,
+      "training_feature_ranges": {
+        "instance_num": {
+          "min": 1.0,
+          "max": 36326.0
+        },
+        "plan_cpu": {
+          "min": 40.0,
+          "max": 200.0
+        },
+        "plan_mem": {
+          "min": 0.0027541221235731,
+          "max": 0.0743198819661947
+        }
+      },
+      "targets": {
+        "mem_mean_of_attempt_averages": {
+          "forest_train": {
+            "rows": 23803,
+            "mae": 0.008413040839760171,
+            "rmse": 0.011163798379449164,
+            "r2": 0.17868382167403385,
+            "underprediction_rate": 0.388648489686174
+          },
+          "forest_test": {
+            "rows": 6430,
+            "mae": 0.00877132293479301,
+            "rmse": 0.011854347756865807,
+            "r2": 0.1291167864417252,
+            "underprediction_rate": 0.3931570762052877
+          },
+          "baseline_test": {
+            "rows": 6430,
+            "mae": 0.0096479019236763,
+            "rmse": 0.012704045326461117,
+            "r2": -0.0002041721174328437,
+            "underprediction_rate": 0.3984447900466563
+          },
+          "mae_reduction_vs_constant": 0.09085695478849487,
+          "test_by_coverage": {
+            "full": {
+              "forest": {
+                "rows": 5902,
+                "mae": 0.008907582550111289,
+                "rmse": 0.01207098946813711,
+                "r2": 0.13004231754223883,
+                "underprediction_rate": 0.4076584208742799
+              },
+              "baseline": {
+                "rows": 5902,
+                "mae": 0.00977127163960725,
+                "rmse": 0.012963546232282738,
+                "r2": -0.0033674945491708463,
+                "underprediction_rate": 0.4185022026431718
+              }
+            },
+            "partial": {
+              "forest": {
+                "rows": 528,
+                "mae": 0.007248208825686033,
+                "rmse": 0.009087755688538268,
+                "r2": -0.6961387682915443,
+                "underprediction_rate": 0.23106060606060605
+              },
+              "baseline": {
+                "rows": 528,
+                "mae": 0.008268871500523887,
+                "rmse": 0.009324084625202872,
+                "r2": -0.7855026849964821,
+                "underprediction_rate": 0.17424242424242425
+              }
+            }
+          }
+        },
+        "mem_observed_peak": {
+          "forest_train": {
+            "rows": 23803,
+            "mae": 0.011912407387518724,
+            "rmse": 0.01776891208326893,
+            "r2": 0.4835439108644378,
+            "underprediction_rate": 0.4333487375540898
+          },
+          "forest_test": {
+            "rows": 6430,
+            "mae": 0.012165033285415896,
+            "rmse": 0.01743837441392185,
+            "r2": 0.4874897697300422,
+            "underprediction_rate": 0.43888024883359256
+          },
+          "baseline_test": {
+            "rows": 6430,
+            "mae": 0.018764201777809915,
+            "rmse": 0.024359331617155842,
+            "r2": -4.899617443565596e-05,
+            "underprediction_rate": 0.42488335925349924
+          },
+          "mae_reduction_vs_constant": 0.3516892735718731,
+          "test_by_coverage": {
+            "full": {
+              "forest": {
+                "rows": 5902,
+                "mae": 0.011806886839471582,
+                "rmse": 0.016981350229676714,
+                "r2": 0.5312726941360892,
+                "underprediction_rate": 0.4490003388681803
+              },
+              "baseline": {
+                "rows": 5902,
+                "mae": 0.018958525557217578,
+                "rmse": 0.024810059220204888,
+                "r2": -0.0005330011710813487,
+                "underprediction_rate": 0.4251101321585903
+              }
+            },
+            "partial": {
+              "forest": {
+                "rows": 528,
+                "mae": 0.016168405111104036,
+                "rmse": 0.021907408480377928,
+                "r2": -0.467922125587215,
+                "underprediction_rate": 0.32575757575757575
+              },
+              "baseline": {
+                "rows": 528,
+                "mae": 0.016592044682991663,
+                "rmse": 0.0185916516353433,
+                "r2": -0.05719950374344296,
+                "underprediction_rate": 0.42234848484848486
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Random held-out jobs measure generalization within this trace, not future-time or VM performance.",
+    "CPU stays in original source units; memory stays normalized. Predictions are not vCPU/GB recommendations.",
+    "Targets summarize measured completed attempts; missing measurements and completed-only selection may bias results.",
+    "High coverage only means coverage among accepted completed attempts, not all requested instances.",
+    "Observed peaks are not simultaneous total task consumption and are not guaranteed upper bounds.",
+    "These three Alibaba request features do not map directly to the current API's expected_users/workload_type.",
+    "Test results are now visible; further model selection requires training-only validation and a fresh final evaluation protocol."
+  ]
+}

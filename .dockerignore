@@ -1,0 +1,21 @@
+# Allow only runtime sources and the two trusted models into the build context.
+**
+!Dockerfile
+!requirements-runtime.txt
+!backend/
+!backend/app/
+!backend/app/**
+!ML/
+!ML/src/
+!ML/src/predict.py
+!ML/src/build_dataset.py
+!ML/src/preprocess.py
+!ML/models/
+!ML/models/reference_v1/
+!ML/models/reference_v1/cpu_reference.joblib
+!ML/models/reference_v1/mem_reference.joblib
+!scripts/
+!scripts/check_app.py
+**/__pycache__/
+**/*.pyc
+**/.env*
