@@ -41,8 +41,9 @@ resource "docker_container" "demo" {
   name    = "ai-cloud-demo"
   image   = docker_image.demo.image_id
   restart = "unless-stopped"
-  # The Docker provider expects a numeric CPU value here, not a string.
-  cpus    = local.sizing.cpu
+  # Use integer CFS limits because provider 3.6.x can panic while decoding cpus.
+  cpu_period = 100000
+  cpu_quota  = floor(local.sizing.cpu * 100000)
   memory  = local.sizing.memory_mb
 
   ports {
